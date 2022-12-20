@@ -19,18 +19,26 @@ export class Login extends React.Component {
         );
     }
 
-    componentDidUpdate() {
+    onLogin = () => {
         console.log(this.state);
     }
 
     render() {
         return (
             <div>
-                <input type='text' name='username' onChange={this.handleInputChange} autoComplete='off'/>
+                <label htmlFor='username'>Username: </label>
+                <input type='text' name='username' id='username' onChange={this.handleInputChange} autoComplete='off'/>
                 <br />
-                <input type='password' name='password' onChange={this.handleInputChange} />
+                <label htmlFor='password'>Password: </label>
+                <input type='password' name='password' id='password' onChange={this.handleInputChange} />
                 <br />
-                <input type='checkbox' name='remember' onChange={this.handleInputChange}/>
+                <label htmlFor='remember'>remember me</label>
+                <input type='checkbox' name='remember' id='remember' onChange={this.handleInputChange}/>
+                <br />
+                <button id='login-btn' 
+                    disabled={this.state.username === '' && this.state.password === ''}
+                    onClick={this.onLogin}    
+                >Login</button>
             </div>
         );
     }
