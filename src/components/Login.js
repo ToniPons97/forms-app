@@ -23,22 +23,44 @@ export class Login extends React.Component {
         console.log(this.state);
     }
 
+    handleInputReset = () => {
+        this.setState({
+            username: '',
+            password: '',
+            remember: false
+        });
+    }
+
     render() {
         return (
             <div>
                 <label htmlFor='username'>Username: </label>
-                <input type='text' name='username' id='username' onChange={this.handleInputChange} autoComplete='off'/>
+                <input type='text' name='username' id='username' 
+                    onChange={this.handleInputChange} 
+                    value={this.state.username}
+                    autoComplete='off'
+                />
                 <br />
                 <label htmlFor='password'>Password: </label>
-                <input type='password' name='password' id='password' onChange={this.handleInputChange} />
+                <input type='password' name='password' id='password' 
+                    value={this.state.password}
+                    onChange={this.handleInputChange} 
+                />
                 <br />
                 <label htmlFor='remember'>remember me</label>
-                <input type='checkbox' name='remember' id='remember' onChange={this.handleInputChange}/>
+                <input type='checkbox' name='remember' id='remember'
+                    checked={this.state.remember}
+                    onChange={this.handleInputChange}
+                />
                 <br />
-                <button id='login-btn' 
+                <button 
                     disabled={this.state.username === '' && this.state.password === ''}
                     onClick={this.onLogin}    
                 >Login</button>
+                <button 
+                    disabled={this.state.username === '' && this.state.password === ''}
+                    onClick={this.handleInputReset}
+                >Reset</button>
             </div>
         );
     }
