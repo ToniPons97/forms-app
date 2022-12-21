@@ -35,6 +35,10 @@ export class UncontrolledLogin extends React.Component {
         else 
             event.target.disable = true;
     }
+
+    componentDidMount() {
+        this._userRef.current.focus();
+    }
     
     render() {
         return (
