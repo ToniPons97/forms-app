@@ -32,8 +32,6 @@ export class UncontrolledLogin extends React.Component {
     disableSubmitBtn = (event) => {
         if (this._submitBtnRef.current.disabled === false)
             this._submitBtnRef.current.disabled = true;
-        else 
-            event.target.disable = true;
     }
     
     render() {
