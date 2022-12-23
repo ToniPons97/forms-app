@@ -4,7 +4,8 @@ export class Login extends React.Component {
     state = {
         username: '',
         password: '',
-        remember: false
+        remember: false,
+        passwordLength: 0
     }
 
     handleInputChange = (event) => {
@@ -17,6 +18,11 @@ export class Login extends React.Component {
                 [name]: type === 'checkbox' ? event.target.checked : value
             }
         );
+
+        if (name === 'password') {
+            console.log(value, value.length);
+            this.setState({passwordLength: value.length});            
+        }
     }
 
     onLogin = () => {
@@ -35,8 +41,11 @@ export class Login extends React.Component {
                 <label htmlFor='remember'>remember me</label>
                 <input type='checkbox' name='remember' id='remember' onChange={this.handleInputChange}/>
                 <br />
-                <button id='login-btn' 
-                    disabled={this.state.username === '' && this.state.password === ''}
+                <button id='login-btn'
+                    style={{
+                        backgroundColor: this.state.passwordLength < 8 ? 'red' : 'green'
+                    }}
+                    disabled={this.state.username === '' || this.state.passwordLength < 8}
                     onClick={this.onLogin}    
                 >Login</button>
             </div>
