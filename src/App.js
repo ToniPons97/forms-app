@@ -1,8 +1,8 @@
 import './App.css';
-import Welcome from './components/Welcome';
+import Sum from './components/Sum';
 
 function App() {
-  return <Welcome name='Toni Pons'/>;
+  return <Sum numbers={[0, 1, 1, 2, 3, 5, 8, 13]} />;
 }
 
 export default App;
