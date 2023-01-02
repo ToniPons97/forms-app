@@ -1,8 +1,8 @@
 import './App.css';
-import { Login } from './components/Login';
+import Welcome from './components/Welcome';
 
 function App() {
-  return <Login />;
+  return <Welcome name='Toni Pons'/>;
 }
 
 export default App;
