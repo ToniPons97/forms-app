@@ -13,13 +13,11 @@ export const Login = () => {
             setUserName(value);
         if (name === 'password')
             setPassword(value);
-        if(name === 'remember')
+        if (name === 'remember')
             setRemember(!remember);
     }
 
-    const onLogin = () => {
-        console.log({username, password, remember});
-    }
+    const onLogin = () => console.log({username, password, remember});
 
     return (
         <div>
