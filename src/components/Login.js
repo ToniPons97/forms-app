@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
 export const Login = () => {
-    /*
-    const [username, setUserName] = useState('');
-    const [password, setPassword] = useState('');
-    const [remember, setRemember] = useState(false);
-    */
     const [form, setForm] = useState({username: '', password: '', remember: false});
 
     const handleInputChange = (event) => {
