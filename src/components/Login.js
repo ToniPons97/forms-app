@@ -1,25 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "./useForm";
 
 export const Login = () => {
-    const [form, setForm] = useState({username: '', password: '', remember: false});
-
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-
-        setForm(prevForm => ({
-            ...prevForm,
-            [name]: name === 'remember' ? !prevForm.remember : value
-        }));
-
-
-        
-        
-        console.log(form);
-    }
-
+    const { formState, onInputChange } = useForm();
+    
     const onLogin = (event) => {
         event.preventDefault();
-        console.log(form);
+        console.log(formState);
     }
 
     return (
@@ -29,8 +16,8 @@ export const Login = () => {
                 type='text' 
                 name='username' 
                 id='username' 
-                value={form.username} 
-                onChange={handleInputChange} 
+                value={formState.username} 
+                onChange={onInputChange} 
                 autoComplete='off'
             />
             <br />
@@ -39,19 +26,19 @@ export const Login = () => {
                 type='password' 
                 name='password' 
                 id='password' 
-                value={form.password}
-                onChange={handleInputChange} />
+                value={formState.password}
+                onChange={onInputChange} />
             <br />
             <label htmlFor='remember'>remember me</label>
             <input 
                 type='checkbox' 
                 name='remember' 
                 id='remember' 
-                value={form.remember}
-                onChange={handleInputChange}/>
+                value={formState.remember}
+                onChange={onInputChange}/>
             <br />
             <button id='login-btn' 
-                disabled={form.username === '' && form.password === ''}
+                disabled={formState.username === '' && formState.password === ''}
                 onClick={onLogin}    
             >Login</button>
         </form>
