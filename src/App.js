@@ -1,8 +1,15 @@
 import './App.css';
-import { Login } from './components/Login';
+import { CarDetails } from './components/CarDetails';
+
+const car = {
+  model: 'Alfa Romeo Spider',
+  year: 1967,
+  color: 'Red'
+};
+
 
 function App() {
-  return <Login />;
+  return <CarDetails initialData={car} />
 }
 
 export default App;
