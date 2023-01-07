@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const Login = () => {
     const [form, setForm] = useState({username: '', password: '', remember: false});
+    const inputRef = useRef(null);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -11,8 +12,6 @@ export const Login = () => {
             [name]: name === 'remember' ? !prevForm.remember : value
         }));
 
-
-        
         
         console.log(form);
     }
@@ -22,6 +21,11 @@ export const Login = () => {
         console.log(form);
     }
 
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
+
+
     return (
         <form>
             <label htmlFor='username'>Username: </label>
@@ -29,6 +33,7 @@ export const Login = () => {
                 type='text' 
                 name='username' 
                 id='username' 
+                ref={inputRef}
                 value={form.username} 
                 onChange={handleInputChange} 
                 autoComplete='off'
