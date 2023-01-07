@@ -10,10 +10,7 @@ export const Login = () => {
         setForm(prevForm => ({
             ...prevForm,
             [name]: name === 'remember' ? !prevForm.remember : value
-        }));
-
-        
-        console.log(form);
+        }));        
     }
 
     const onLogin = (event) => {
