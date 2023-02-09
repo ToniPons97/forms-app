@@ -19,10 +19,6 @@ export class Login extends React.Component {
         );
     }
 
-    onLogin = () => {
-        console.log(this.state);
-    }
-
     render() {
         return (
             <div>
@@ -37,7 +33,7 @@ export class Login extends React.Component {
                 <br />
                 <button id='login-btn' 
                     disabled={this.state.username === '' && this.state.password === ''}
-                    onClick={this.onLogin}    
+                    onClick={() => this.props.onLogin(this.state)}
                 >Login</button>
             </div>
         );

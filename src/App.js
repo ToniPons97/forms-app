@@ -2,7 +2,12 @@ import './App.css';
 import { Login } from './components/Login';
 
 function App() {
-  return <Login />;
+
+  const onLogin = (state) => {
+    console.log(state);
+  }
+
+  return <Login onLogin={onLogin}/>;
 }
 
 export default App;
